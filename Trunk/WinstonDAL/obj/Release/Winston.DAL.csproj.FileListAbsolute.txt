@@ -1,0 +1,16 @@
+C:\Users\paradigma\Source\Workspaces\Winston\Trunk\WinstonDAL\bin\Release\Winston.DAL.dll.config
+C:\Users\paradigma\Source\Workspaces\Winston\Trunk\WinstonDAL\bin\Release\Winston.DAL.dll
+C:\Users\paradigma\Source\Workspaces\Winston\Trunk\WinstonDAL\bin\Release\Winston.DAL.pdb
+C:\Users\paradigma\Source\Workspaces\Winston\Trunk\WinstonDAL\bin\Release\EntityFramework.dll
+C:\Users\paradigma\Source\Workspaces\Winston\Trunk\WinstonDAL\bin\Release\EntityFramework.SqlServer.dll
+C:\Users\paradigma\Source\Workspaces\Winston\Trunk\WinstonDAL\bin\Release\Winston.Common.dll
+C:\Users\paradigma\Source\Workspaces\Winston\Trunk\WinstonDAL\bin\Release\log4net.dll
+C:\Users\paradigma\Source\Workspaces\Winston\Trunk\WinstonDAL\bin\Release\Newtonsoft.Json.dll
+C:\Users\paradigma\Source\Workspaces\Winston\Trunk\WinstonDAL\bin\Release\Winston.Common.pdb
+C:\Users\paradigma\Source\Workspaces\Winston\Trunk\WinstonDAL\bin\Release\EntityFramework.xml
+C:\Users\paradigma\Source\Workspaces\Winston\Trunk\WinstonDAL\bin\Release\EntityFramework.SqlServer.xml
+C:\Users\paradigma\Source\Workspaces\Winston\Trunk\WinstonDAL\bin\Release\log4net.xml
+C:\Users\paradigma\Source\Workspaces\Winston\Trunk\WinstonDAL\bin\Release\Newtonsoft.Json.xml
+C:\Users\paradigma\Source\Workspaces\Winston\Trunk\WinstonDAL\obj\Release\Winston.DAL.csprojResolveAssemblyReference.cache
+C:\Users\paradigma\Source\Workspaces\Winston\Trunk\WinstonDAL\obj\Release\Winston.DAL.dll
+C:\Users\paradigma\Source\Workspaces\Winston\Trunk\WinstonDAL\obj\Release\Winston.DAL.pdb

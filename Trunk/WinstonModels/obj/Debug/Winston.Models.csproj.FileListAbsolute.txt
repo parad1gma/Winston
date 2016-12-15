@@ -1,0 +1,11 @@
+C:\Users\paradigma\Source\Workspaces\Winston\Trunk\WinstonModels\bin\Debug\Winston.Models.dll
+C:\Users\paradigma\Source\Workspaces\Winston\Trunk\WinstonModels\bin\Debug\Winston.Models.pdb
+C:\Users\paradigma\Source\Workspaces\Winston\Trunk\WinstonModels\bin\Debug\Winston.Common.dll
+C:\Users\paradigma\Source\Workspaces\Winston\Trunk\WinstonModels\bin\Debug\log4net.dll
+C:\Users\paradigma\Source\Workspaces\Winston\Trunk\WinstonModels\bin\Debug\Newtonsoft.Json.dll
+C:\Users\paradigma\Source\Workspaces\Winston\Trunk\WinstonModels\bin\Debug\Winston.Common.pdb
+C:\Users\paradigma\Source\Workspaces\Winston\Trunk\WinstonModels\bin\Debug\log4net.xml
+C:\Users\paradigma\Source\Workspaces\Winston\Trunk\WinstonModels\bin\Debug\Newtonsoft.Json.xml
+C:\Users\paradigma\Source\Workspaces\Winston\Trunk\WinstonModels\obj\Debug\Winston.Models.csprojResolveAssemblyReference.cache
+C:\Users\paradigma\Source\Workspaces\Winston\Trunk\WinstonModels\obj\Debug\Winston.Models.dll
+C:\Users\paradigma\Source\Workspaces\Winston\Trunk\WinstonModels\obj\Debug\Winston.Models.pdb

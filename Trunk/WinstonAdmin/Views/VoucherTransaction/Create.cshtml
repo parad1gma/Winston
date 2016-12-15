@@ -1,0 +1,78 @@
+﻿@using Winston.Models;
+@using Winston.Common;
+@model IResponse<VoucherTransactionCreateModel>
+
+@{
+    ViewBag.Title = "Voucher Transaction";
+}
+
+<h2>Voucher Transaction</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>Create</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+        @Html.HiddenFor(model => model.Value.KeyAccountID)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Value.UserVoucherID, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @*@Html.EditorFor(model => model.Value.UserVoucherID, new { htmlAttributes = new { @class = "form-control" } })*@
+                @Html.DropDownListFor(model => model.Value.UserVoucherID, Model.Value.UserVoucherList.Select(o => new SelectListItem { Value = o.Id.ToString(), Text = o.Value }), "", new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Value.UserVoucherID, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input id="submit" type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index", "KeyAccount")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+
+    <script>
+
+        $("#submit").click(function (e) {
+            e.preventDefault();
+
+            keyAccountID = $("#Value_KeyAccountID").val();
+            userVoucherID = $("#Value_UserVoucherID").val();
+
+            var voucherTransaction = {
+                KeyAccountID: keyAccountID,
+                UserVoucherID: userVoucherID,
+            };
+
+            $.ajax({
+                url: '/VoucherTransaction/Create',
+                type: 'post',
+                dataType: 'json',
+                data: voucherTransaction,
+                success: function (response) {
+                    if (response.Message == null) {
+                        bootbox.alert("Voucher Transaction successfully created!", function () { window.location = "/KeyAccount"; });
+                    }
+                    else {
+                        bootbox.alert(response.Message);
+                        return false;
+                    }
+                }
+            });
+        });
+
+    </script>
+
+}

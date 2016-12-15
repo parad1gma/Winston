@@ -1,0 +1,4 @@
+﻿SET IDENTITY_INSERT [dbo].[User] ON 
+INSERT [dbo].[User] ([UserID], [Username], [Password], [Gender], [FirstName], [LastName], [ZipCode], [City], [Street], [StreetNumber], [AdressInfo], [Email], [DateOfBirth], [PointBalance], [CreatedDate]) VALUES (1, N'paradigma', N'paradigma', 1, N'Mile', N'Kordic', N'21000', N'Novi Sad', N'Stanoja Stanojevića', N'14', N'Stan 9', N'paradigma@paradigma.rs', CAST(N'1974-07-05' AS Date), 10, CAST(N'2016-11-09 15:02:52.600' AS DateTime))
+INSERT [dbo].[User] ([UserID], [Username], [Password], [Gender], [FirstName], [LastName], [ZipCode], [City], [Street], [StreetNumber], [AdressInfo], [Email], [DateOfBirth], [PointBalance], [CreatedDate]) VALUES (2, N'zikela', N'zikela', 1, N'Živan', N'Čurčić', N'21241', N'Kać', N'Zdravka Čelara', N'14', NULL, N'zivan.curcic@outlook.com', CAST(N'1985-02-20' AS Date), 0, CAST(N'2016-11-15 14:40:20.383' AS DateTime))
+SET IDENTITY_INSERT [dbo].[User] OFF

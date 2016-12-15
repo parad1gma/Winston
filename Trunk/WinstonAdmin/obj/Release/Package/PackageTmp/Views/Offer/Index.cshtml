@@ -1,0 +1,153 @@
+﻿@using Winston.Models;
+@using Winston.Common;
+@model IPagedResponse<List<OfferViewModel>>
+
+@{
+    ViewBag.Title = "Offers";
+}
+
+<h2>Offers</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table table-striped table-hover">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Value[0].Title)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Value[0].DateFrom)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Value[0].DateTo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Value[0].UserSegmentName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Value[0].Messages)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Value[0].Active)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model.Value)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateFrom)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateTo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UserSegmentName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Messages)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Active)
+            </td>
+            <td style="text-align: center">
+                @*@Html.ActionLink("Edit", "Edit", new { id = item.OfferID }, new { @class= "btn btn-xs btn-default" } )*@
+                <a class="btn btn-xs btn-default" href="/Offer/Edit/@item.OfferID">
+                    <i class="glyphicon glyphicon-edit"></i>
+                    Edit
+                </a>
+                @*@Html.ActionLink("Details", "Details", new { id = item.OfferID }, new { @class = "btn btn-xs btn-default" })*@
+                <a class="btn btn-xs btn-default" href="/Offer/Details/@item.OfferID">
+                    <i class="glyphicon glyphicon-zoom-in"></i>
+                    Detail
+                </a>
+                @*@Html.ActionLink("Delete", "Delete", new { id=item.OfferID })*@
+                <button onclick="Delete(@item.OfferID)" class="btn btn-xs btn-default">
+                    <i class="glyphicon glyphicon-remove"></i>
+                    Delete
+                </button>
+            </td>
+        </tr>
+    }
+
+</table>
+
+@*<table name="pagination" class="table" style="">
+    <thead>
+        <tr style="height: auto">
+            <td style="text-align:left">Page Size</td>
+            <td style="text-align:right">Page Count</td>
+        </tr>
+    </thead>
+    <tbody>
+        <tr style="height: auto">
+            <td style="vertical-align: middle">
+                <select class="form-control" style="width:auto">
+                    <option value="10">10</option>
+                    <option value="25">25</option>
+                    <option value="50">50</option>
+                    <option value="100">100</option>
+                </select>
+            </td>
+            <td style="vertical-align: middle">
+                <ul id="pageCount" class="pagination pull-right" style="">
+                    <li class="disabled"><a href="#">&laquo;</a></li>
+                    <li class="active"><a href="#">1</a></li>
+                    <li><a href="#">2</a></li>
+                    <li><a href="#">3</a></li>
+                    <li><a href="#">4</a></li>
+                    <li><a href="#">5</a></li>
+                    <li><a href="#">&raquo;</a></li>
+                </ul>
+            </td>
+        </tr>
+    </tbody>
+</table>*@
+
+@section Scripts {
+    <script>
+
+        function Delete(id) {
+            
+            bootbox.confirm({
+                size: "small",
+                message: "Are you sure?",
+                buttons: {
+                    confirm: {
+                        label: 'Yes',
+                        className: 'btn-success'
+                    },
+                    cancel: {
+                        label: 'No',
+                        className: 'btn-danger'
+                    }
+                },
+                callback: function (result) {
+                    if (result == true) {
+                        $.ajax({
+                            url: '/Offer/Delete/' + id,
+                            type: 'post',
+                            dataType: 'json',
+                            data: id,
+                            success: function (response) {
+                                if (response.Message == null) {
+                                    bootbox.alert("Offer successfully deleted!", function (result) { window.location = "/Offer/Index"; });
+                                }
+                                else {
+                                    bootbox.alert(response.Message);
+                                    return false;
+                                }
+                            }
+                        });
+                    }
+                }
+            });
+        }
+
+    </script>
+}

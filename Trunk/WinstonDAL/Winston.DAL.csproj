@@ -1,0 +1,176 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{24FA1D17-681C-489D-B5BF-E64FFB52B50C}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Winston.DAL</RootNamespace>
+    <AssemblyName>Winston.DAL</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AspNetRoles.cs">
+      <DependentUpon>WinstonEntity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AspNetUserClaims.cs">
+      <DependentUpon>WinstonEntity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AspNetUserLogins.cs">
+      <DependentUpon>WinstonEntity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AspNetUsers.cs">
+      <DependentUpon>WinstonEntity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CalculationTypeEnum.cs">
+      <DependentUpon>WinstonEntity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\WinstonEntities.cs" />
+    <Compile Include="Interfaces\IKeyAccountRepository.cs" />
+    <Compile Include="Interfaces\IOfferRepository.cs" />
+    <Compile Include="Interfaces\IRepository.cs" />
+    <Compile Include="Interfaces\IUserRepository.cs" />
+    <Compile Include="Interfaces\IUserSegmentRepository.cs" />
+    <Compile Include="Interfaces\IUserVoucherRepository.cs" />
+    <Compile Include="Interfaces\IVoucherRepository.cs" />
+    <Compile Include="Interfaces\IVoucherTransactionRepository.cs" />
+    <Compile Include="IWinstonEntities.cs" />
+    <Compile Include="KeyAccount.cs">
+      <DependentUpon>WinstonEntity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Offer.cs">
+      <DependentUpon>WinstonEntity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repository\KeyAccountRepository.cs" />
+    <Compile Include="Repository\OfferRepository.cs" />
+    <Compile Include="Repository\Repository.cs" />
+    <Compile Include="Repository\UserRepository.cs" />
+    <Compile Include="Repository\UserSegmentRepository.cs" />
+    <Compile Include="Repository\UserVoucherRepository.cs" />
+    <Compile Include="Repository\VoucherRepository.cs" />
+    <Compile Include="Repository\VoucherTransactionRepository.cs" />
+    <Compile Include="UoW\IUoW.cs" />
+    <Compile Include="UoW\UoW.cs" />
+    <Compile Include="User.cs">
+      <DependentUpon>WinstonEntity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="UserSegment.cs">
+      <DependentUpon>WinstonEntity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="UserVoucher.cs">
+      <DependentUpon>WinstonEntity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Voucher.cs">
+      <DependentUpon>WinstonEntity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VoucherTransaction.cs">
+      <DependentUpon>WinstonEntity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VoucherTypeEnum.cs">
+      <DependentUpon>WinstonEntity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WinstonEntity.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>WinstonEntity.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WinstonEntity.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>WinstonEntity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WinstonEntity.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>WinstonEntity.edmx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EntityDeploy Include="WinstonEntity.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>WinstonEntity.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.Config" />
+    <None Include="packages.config" />
+    <None Include="WinstonEntity.edmx.diagram">
+      <DependentUpon>WinstonEntity.edmx</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="WinstonEntity.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>WinstonEntity.edmx</DependentUpon>
+      <LastGenOutput>WinstonEntity.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="WinstonEntity.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>WinstonEntity.edmx</DependentUpon>
+      <LastGenOutput>WinstonEntity.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Winston.Common\Winston.Common.csproj">
+      <Project>{C5B451A3-0A8E-46EB-9E60-8DBF3C6141AA}</Project>
+      <Name>Winston.Common</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

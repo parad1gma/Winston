@@ -1,0 +1,16 @@
+C:\Users\paradigma\Source\Workspaces\Winston\Trunk\WinstonDAL\bin\Debug\Winston.DAL.dll.config
+C:\Users\paradigma\Source\Workspaces\Winston\Trunk\WinstonDAL\bin\Debug\Winston.DAL.dll
+C:\Users\paradigma\Source\Workspaces\Winston\Trunk\WinstonDAL\bin\Debug\Winston.DAL.pdb
+C:\Users\paradigma\Source\Workspaces\Winston\Trunk\WinstonDAL\bin\Debug\EntityFramework.dll
+C:\Users\paradigma\Source\Workspaces\Winston\Trunk\WinstonDAL\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\paradigma\Source\Workspaces\Winston\Trunk\WinstonDAL\bin\Debug\EntityFramework.xml
+C:\Users\paradigma\Source\Workspaces\Winston\Trunk\WinstonDAL\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\paradigma\Source\Workspaces\Winston\Trunk\WinstonDAL\obj\Debug\Winston.DAL.csprojResolveAssemblyReference.cache
+C:\Users\paradigma\Source\Workspaces\Winston\Trunk\WinstonDAL\obj\Debug\Winston.DAL.dll
+C:\Users\paradigma\Source\Workspaces\Winston\Trunk\WinstonDAL\obj\Debug\Winston.DAL.pdb
+C:\Users\paradigma\Source\Workspaces\Winston\Trunk\WinstonDAL\bin\Debug\Winston.Common.dll
+C:\Users\paradigma\Source\Workspaces\Winston\Trunk\WinstonDAL\bin\Debug\log4net.dll
+C:\Users\paradigma\Source\Workspaces\Winston\Trunk\WinstonDAL\bin\Debug\Newtonsoft.Json.dll
+C:\Users\paradigma\Source\Workspaces\Winston\Trunk\WinstonDAL\bin\Debug\Winston.Common.pdb
+C:\Users\paradigma\Source\Workspaces\Winston\Trunk\WinstonDAL\bin\Debug\log4net.xml
+C:\Users\paradigma\Source\Workspaces\Winston\Trunk\WinstonDAL\bin\Debug\Newtonsoft.Json.xml

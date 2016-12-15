@@ -1,0 +1,79 @@
+﻿@using Winston.Common
+@model IResponse<Winston.Models.KeyAccountCreateModel>
+
+@{
+    ViewBag.Title = "Key Account";
+}
+
+<h2>Key Account</h2>
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>Edit</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.Value.KeyAccountID)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Value.Name, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Value.Name, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Value.Name, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        @* Logo later *@
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input id="submit" type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+
+    <script>
+
+        $("#submit").click(function (e) {
+            keyAccountId = $("#Value_KeyAccountID").val();
+            name = $("#Value_Name").val();
+
+            var data = {
+                KeyAccountID: keyAccountId,
+                Name: name
+            };
+
+            if (name != "") {
+                e.preventDefault();
+
+                $.ajax({
+                    url: '/KeyAccount/Edit',
+                    type: 'post',
+                    dataType: 'json',
+                    data: data,
+                    success: function (response) {
+                        console.log(response);
+
+                        if (response.Message == null) {
+                            bootbox.alert("Key Account successfully updated!", function () { window.location = "/KeyAccount/Index"; });
+                        }
+                        else {
+                            bootbox.alert(response.Message);
+                            return false;
+                        }
+                    }
+                });
+            };
+        });
+    </script>
+
+}

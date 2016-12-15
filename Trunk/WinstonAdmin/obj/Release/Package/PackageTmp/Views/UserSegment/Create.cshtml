@@ -1,0 +1,205 @@
+﻿@using Winston.Common
+@model IResponse<Winston.Models.UserSegmentCreateModel>
+
+@{
+    ViewBag.Title = "User Segment";
+}
+
+<h2>User Segment</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>Create</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Value.Name, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Value.Name, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Value.Name, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Value.Gender, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EnumDropDownListFor(model => model.Value.Gender, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Value.Gender, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Value.DateOfBirthFrom, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <input name="Value.DateOfBirthFrom" class="form-control text-box single-line" id="Value_DateOfBirthFrom" type="date">
+                <span id="errorDateOfBirthFrom" style="color:#a94442;" class="hidden"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Value.DateOfBirthTo, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <input name="Value.DateOfBirthTo" class="form-control text-box single-line" id="Value_DateOfBirthTo" type="date">
+                <span id="errorDateOfBirthTo" style="color:#a94442;" class="hidden"></span>
+                <span id="errorDateOfBirth" style="color:#a94442;" class="hidden"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Value.ZipCode, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Value.ZipCode, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Value.ZipCode, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input id="submit" type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+
+    <script>
+
+
+        var dateformat = "@Globalization.Culture.DateTimeFormat.ShortDatePattern";
+
+        switch (dateformat) {
+            case "d.M.yyyy.":
+                dateformat = "d.m.yyyy.";
+                break;
+            case "dd.MM.yyyy.":
+                dateformat = "dd.mm.yyyy.";
+                break;
+            case "M/d/yyyy":
+                dateformat = "m/d/yyyy";
+                break;
+            case "MM/dd/yyyy":
+                dateformat = "mm/dd/yyyy";
+                break;
+            default:
+                dateformat = "mm-dd-yyyy";
+        }
+
+        //// dateFrom
+        //$("#Value_DateOfBirthFrom")
+        //.prop("placeholder", dateformat.toUpperCase())
+        //.datepicker({
+        //    format: dateformat
+        //})
+        //.on('changeDate', function (e) {
+        //    $(this).datepicker('hide');
+        //    $("#errorDateOfBirthFrom").addClass("hidden");
+        //    $("#errorDateOfBirth").addClass("hidden");
+        //})
+        //.keydown(function () {
+        //    $(this).datepicker('hide');
+        //    $("#errorDateOfBirthFrom").addClass("hidden");
+        //    $("#errorDateOfBirth").addClass("hidden");
+        //});
+
+        //// dateTo
+        //$("#Value_DateOfBirthTo")
+        //.prop("placeholder", dateformat.toUpperCase())
+        //.datepicker({
+        //    format: dateformat
+        //})
+        //.on('changeDate', function (e) {
+        //    $(this).datepicker('hide');
+        //    $("#errorDateOfBirthTo").addClass("hidden");
+        //    $("#errorDateOfBirth").addClass("hidden");
+        //})
+        //.keydown(function () {
+        //    $(this).datepicker('hide');
+        //    $("#errorDateOfBirthTo").addClass("hidden");
+        //    $("#errorDateOfBirth").addClass("hidden");
+        //});
+
+        $("#submit").click(function (e) {
+            var validated = true;
+
+            var name = $("#Value_Name").val();
+            var gender = $("#Value_Gender").val();
+            var zipcode = $("#Value_ZipCode").val();
+            var dateOfBirthFrom = $("#Value_DateOfBirthFrom").val();
+            var dateOfBirthTo = $("#Value_DateOfBirthTo").val();
+
+            var data = {
+                Name: name,
+                ZipCode: zipcode,
+                Gender: gender,
+                DateOfBirthFrom: dateOfBirthFrom,
+                DateOfBirthTo: dateOfBirthTo
+            };
+
+            // Validation of razor fields
+            if (name == "") {
+                validated = false;
+            } else {
+                e.preventDefault();
+            };
+
+            // Validation of dateFrom field
+            if (dateOfBirthFrom != "") {
+                var dateFromValid = moment(dateOfBirthFrom, dateformat.toUpperCase(), true).isValid();
+                if (!dateFromValid) {
+                    $("#errorDateOfBirthFrom").text("The field Date of Birth From must be a date.").removeClass("hidden");
+                    validated = false;
+                };
+            }
+
+            // Validation of dateTo field
+            if (dateOfBirthTo != "") {
+                var dateToValid = moment(dateOfBirthTo, dateformat.toUpperCase(), true).isValid();
+                if (!dateToValid) {
+                    $("#errorDateOfBirthTo").text("The field Date of Birth To must be a date.").removeClass("hidden");
+                    validated = false;
+                };
+            }
+
+            // Validation dateTo > dateFrom
+            if (dateFromValid && dateToValid) {
+                if (moment(moment(dateOfBirthFrom, dateformat.toUpperCase(), true)).isAfter(moment(dateOfBirthTo, dateformat.toUpperCase(), true))) {
+                    $("#errorDateOfBirth").text("The end date cannot be less then the start date.").removeClass("hidden");
+                    validated = false;
+                };
+            };
+
+            if (validated) {
+                e.preventDefault();
+
+                console.log("ajax call", data);
+
+                $.ajax({
+
+                    url: '/UserSegment/Create',
+                    type: 'post',
+                    dataType: 'json',
+                    data: data,
+                    success: function (data) {
+                        if (data.Message == null) {
+                            bootbox.alert("User segment successfully created!!", function () {
+
+                                setTimeout(window.location.href = ("/UserSegment/Index"), 2000);
+                            });
+                        }
+                        else {
+                            bootbox.alert(data.Message);
+                            return false;
+                        }
+                    }
+                });
+            };
+        });
+
+    </script>
+}

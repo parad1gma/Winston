@@ -1,0 +1,437 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="WinstonEntityModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="WinstonEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="AspNetRoles" EntityType="WinstonEntityModel.AspNetRoles" />
+    <EntitySet Name="AspNetUserClaims" EntityType="WinstonEntityModel.AspNetUserClaims" />
+    <EntitySet Name="AspNetUserLogins" EntityType="WinstonEntityModel.AspNetUserLogins" />
+    <EntitySet Name="AspNetUsers" EntityType="WinstonEntityModel.AspNetUsers" />
+    <EntitySet Name="CalculationTypeEnum" EntityType="WinstonEntityModel.CalculationTypeEnum" />
+    <EntitySet Name="KeyAccount" EntityType="WinstonEntityModel.KeyAccount" />
+    <EntitySet Name="Offer" EntityType="WinstonEntityModel.Offer" />
+    <EntitySet Name="User" EntityType="WinstonEntityModel.User" />
+    <EntitySet Name="UserSegment" EntityType="WinstonEntityModel.UserSegment" />
+    <EntitySet Name="UserVoucher" EntityType="WinstonEntityModel.UserVoucher" />
+    <EntitySet Name="Voucher" EntityType="WinstonEntityModel.Voucher" />
+    <EntitySet Name="VoucherTransaction" EntityType="WinstonEntityModel.VoucherTransaction" />
+    <EntitySet Name="VoucherTypeEnum" EntityType="WinstonEntityModel.VoucherTypeEnum" />
+    <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="WinstonEntityModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="AspNetUserClaims" EntitySet="AspNetUserClaims" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" Association="WinstonEntityModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="AspNetUserLogins" EntitySet="AspNetUserLogins" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Voucher_CalculationTypeEnum" Association="WinstonEntityModel.FK_Voucher_CalculationTypeEnum">
+      <End Role="CalculationTypeEnum" EntitySet="CalculationTypeEnum" />
+      <End Role="Voucher" EntitySet="Voucher" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Voucher_KeyAccount" Association="WinstonEntityModel.FK_Voucher_KeyAccount">
+      <End Role="KeyAccount" EntitySet="KeyAccount" />
+      <End Role="Voucher" EntitySet="Voucher" />
+    </AssociationSet>
+    <AssociationSet Name="FK_VoucherTransaction_KeyAccount" Association="WinstonEntityModel.FK_VoucherTransaction_KeyAccount">
+      <End Role="KeyAccount" EntitySet="KeyAccount" />
+      <End Role="VoucherTransaction" EntitySet="VoucherTransaction" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Offer_UserSegment" Association="WinstonEntityModel.FK_Offer_UserSegment">
+      <End Role="UserSegment" EntitySet="UserSegment" />
+      <End Role="Offer" EntitySet="Offer" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Voucher_Offer" Association="WinstonEntityModel.FK_Voucher_Offer">
+      <End Role="Offer" EntitySet="Offer" />
+      <End Role="Voucher" EntitySet="Voucher" />
+    </AssociationSet>
+    <AssociationSet Name="FK_VoucherTransaction_Offer" Association="WinstonEntityModel.FK_VoucherTransaction_Offer">
+      <End Role="Offer" EntitySet="Offer" />
+      <End Role="VoucherTransaction" EntitySet="VoucherTransaction" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserVoucher_User" Association="WinstonEntityModel.FK_UserVoucher_User">
+      <End Role="User" EntitySet="User" />
+      <End Role="UserVoucher" EntitySet="UserVoucher" />
+    </AssociationSet>
+    <AssociationSet Name="FK_VoucherTransaction_User" Association="WinstonEntityModel.FK_VoucherTransaction_User">
+      <End Role="User" EntitySet="User" />
+      <End Role="VoucherTransaction" EntitySet="VoucherTransaction" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserVoucher_Voucher" Association="WinstonEntityModel.FK_UserVoucher_Voucher">
+      <End Role="Voucher" EntitySet="Voucher" />
+      <End Role="UserVoucher" EntitySet="UserVoucher" />
+    </AssociationSet>
+    <AssociationSet Name="FK_VoucherTransaction_UserVoucher" Association="WinstonEntityModel.FK_VoucherTransaction_UserVoucher">
+      <End Role="UserVoucher" EntitySet="UserVoucher" />
+      <End Role="VoucherTransaction" EntitySet="VoucherTransaction" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Voucher_VoucherTypeEnum" Association="WinstonEntityModel.FK_Voucher_VoucherTypeEnum">
+      <End Role="VoucherTypeEnum" EntitySet="VoucherTypeEnum" />
+      <End Role="Voucher" EntitySet="Voucher" />
+    </AssociationSet>
+    <AssociationSet Name="FK_VoucherTransaction_Voucher" Association="WinstonEntityModel.FK_VoucherTransaction_Voucher">
+      <End Role="Voucher" EntitySet="Voucher" />
+      <End Role="VoucherTransaction" EntitySet="VoucherTransaction" />
+    </AssociationSet>
+    <AssociationSet Name="AspNetUserRoles" Association="WinstonEntityModel.AspNetUserRoles">
+      <End Role="AspNetRoles" EntitySet="AspNetRoles" />
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="AspNetRoles">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="AspNetUsers" Relationship="WinstonEntityModel.AspNetUserRoles" FromRole="AspNetRoles" ToRole="AspNetUsers" />
+  </EntityType>
+  <EntityType Name="AspNetUserClaims">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserId" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="ClaimType" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ClaimValue" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="AspNetUsers" Relationship="WinstonEntityModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUserClaims" ToRole="AspNetUsers" />
+  </EntityType>
+  <EntityType Name="AspNetUserLogins">
+    <Key>
+      <PropertyRef Name="LoginProvider" />
+      <PropertyRef Name="ProviderKey" />
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="LoginProvider" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="ProviderKey" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="UserId" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="AspNetUsers" Relationship="WinstonEntityModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUserLogins" ToRole="AspNetUsers" />
+  </EntityType>
+  <EntityType Name="AspNetUsers">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Name="EmailConfirmed" Type="Boolean" Nullable="false" />
+    <Property Name="PasswordHash" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SecurityStamp" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PhoneNumber" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PhoneNumberConfirmed" Type="Boolean" Nullable="false" />
+    <Property Name="TwoFactorEnabled" Type="Boolean" Nullable="false" />
+    <Property Name="LockoutEndDateUtc" Type="DateTime" Precision="3" />
+    <Property Name="LockoutEnabled" Type="Boolean" Nullable="false" />
+    <Property Name="AccessFailedCount" Type="Int32" Nullable="false" />
+    <Property Name="UserName" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="AspNetUserClaims" Relationship="WinstonEntityModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUsers" ToRole="AspNetUserClaims" />
+    <NavigationProperty Name="AspNetUserLogins" Relationship="WinstonEntityModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUsers" ToRole="AspNetUserLogins" />
+    <NavigationProperty Name="AspNetRoles" Relationship="WinstonEntityModel.AspNetUserRoles" FromRole="AspNetUsers" ToRole="AspNetRoles" />
+  </EntityType>
+  <EntityType Name="CalculationTypeEnum">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Voucher" Relationship="WinstonEntityModel.FK_Voucher_CalculationTypeEnum" FromRole="CalculationTypeEnum" ToRole="Voucher" />
+  </EntityType>
+  <EntityType Name="KeyAccount">
+    <Key>
+      <PropertyRef Name="KeyAccountID" />
+    </Key>
+    <Property Name="KeyAccountID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Logo" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <NavigationProperty Name="Voucher" Relationship="WinstonEntityModel.FK_Voucher_KeyAccount" FromRole="KeyAccount" ToRole="Voucher" />
+    <NavigationProperty Name="VoucherTransaction" Relationship="WinstonEntityModel.FK_VoucherTransaction_KeyAccount" FromRole="KeyAccount" ToRole="VoucherTransaction" />
+  </EntityType>
+  <EntityType Name="Offer">
+    <Key>
+      <PropertyRef Name="OfferID" />
+    </Key>
+    <Property Name="OfferID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Title" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="DateFrom" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="DateTo" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="UserSegmentID" Type="Int64" Nullable="false" />
+    <Property Name="Messages" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Active" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="UserSegment" Relationship="WinstonEntityModel.FK_Offer_UserSegment" FromRole="Offer" ToRole="UserSegment" />
+    <NavigationProperty Name="Voucher" Relationship="WinstonEntityModel.FK_Voucher_Offer" FromRole="Offer" ToRole="Voucher" />
+    <NavigationProperty Name="VoucherTransaction" Relationship="WinstonEntityModel.FK_VoucherTransaction_Offer" FromRole="Offer" ToRole="VoucherTransaction" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="UserID" />
+    </Key>
+    <Property Name="UserID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Username" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Name="Password" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Gender" Type="Int32" Nullable="false" />
+    <Property Name="FirstName" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Name="LastName" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Name="ZipCode" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Name="City" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Name="Street" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Name="StreetNumber" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Name="AdressInfo" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Name="DateOfBirth" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="PointBalance" Type="Int32" Nullable="false" />
+    <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="UserVoucher" Relationship="WinstonEntityModel.FK_UserVoucher_User" FromRole="User" ToRole="UserVoucher" />
+    <NavigationProperty Name="VoucherTransaction" Relationship="WinstonEntityModel.FK_VoucherTransaction_User" FromRole="User" ToRole="VoucherTransaction" />
+  </EntityType>
+  <EntityType Name="UserSegment">
+    <Key>
+      <PropertyRef Name="UserSegmentID" />
+    </Key>
+    <Property Name="UserSegmentID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Name="Gender" Type="Int32" Nullable="false" />
+    <Property Name="DateOfBirthFrom" Type="DateTime" Precision="0" />
+    <Property Name="DateOfBirthTo" Type="DateTime" Precision="0" />
+    <Property Name="ZipCode" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Offer" Relationship="WinstonEntityModel.FK_Offer_UserSegment" FromRole="UserSegment" ToRole="Offer" />
+  </EntityType>
+  <EntityType Name="UserVoucher">
+    <Key>
+      <PropertyRef Name="UserVoucherID" />
+    </Key>
+    <Property Name="UserVoucherID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Code" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Name="OfferID" Type="Int64" Nullable="false" />
+    <Property Name="VoucherID" Type="Int64" Nullable="false" />
+    <Property Name="UserID" Type="Int64" Nullable="false" />
+    <Property Name="ValidFrom" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="ValidTo" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="RedeemDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Valid" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="User" Relationship="WinstonEntityModel.FK_UserVoucher_User" FromRole="UserVoucher" ToRole="User" />
+    <NavigationProperty Name="Voucher" Relationship="WinstonEntityModel.FK_UserVoucher_Voucher" FromRole="UserVoucher" ToRole="Voucher" />
+    <NavigationProperty Name="VoucherTransaction" Relationship="WinstonEntityModel.FK_VoucherTransaction_UserVoucher" FromRole="UserVoucher" ToRole="VoucherTransaction" />
+  </EntityType>
+  <EntityType Name="Voucher">
+    <Key>
+      <PropertyRef Name="VoucherID" />
+    </Key>
+    <Property Name="VoucherID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="OfferID" Type="Int64" Nullable="false" />
+    <Property Name="Code" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Images" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <Property Name="PointCost" Type="Int32" Nullable="false" />
+    <Property Name="Type" Type="Int32" Nullable="false" />
+    <Property Name="Amount" Type="Int32" Nullable="false" />
+    <Property Name="CalculationType" Type="Int32" Nullable="false" />
+    <Property Name="ExpirationDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="KeyAcountID" Type="Int64" />
+    <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="CalculationTypeEnum" Relationship="WinstonEntityModel.FK_Voucher_CalculationTypeEnum" FromRole="Voucher" ToRole="CalculationTypeEnum" />
+    <NavigationProperty Name="KeyAccount" Relationship="WinstonEntityModel.FK_Voucher_KeyAccount" FromRole="Voucher" ToRole="KeyAccount" />
+    <NavigationProperty Name="Offer" Relationship="WinstonEntityModel.FK_Voucher_Offer" FromRole="Voucher" ToRole="Offer" />
+    <NavigationProperty Name="UserVoucher" Relationship="WinstonEntityModel.FK_UserVoucher_Voucher" FromRole="Voucher" ToRole="UserVoucher" />
+    <NavigationProperty Name="VoucherTypeEnum" Relationship="WinstonEntityModel.FK_Voucher_VoucherTypeEnum" FromRole="Voucher" ToRole="VoucherTypeEnum" />
+    <NavigationProperty Name="VoucherTransaction" Relationship="WinstonEntityModel.FK_VoucherTransaction_Voucher" FromRole="Voucher" ToRole="VoucherTransaction" />
+  </EntityType>
+  <EntityType Name="VoucherTransaction">
+    <Key>
+      <PropertyRef Name="VoucherTransactionID" />
+    </Key>
+    <Property Name="VoucherTransactionID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserVoucherID" Type="Int64" Nullable="false" />
+    <Property Name="VoucherID" Type="Int64" Nullable="false" />
+    <Property Name="UserID" Type="Int64" Nullable="false" />
+    <Property Name="OfferID" Type="Int64" Nullable="false" />
+    <Property Name="KeyAccountID" Type="Int64" Nullable="false" />
+    <Property Name="Amount" Type="Int32" Nullable="false" />
+    <Property Name="TimeStamp" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="KeyAccount" Relationship="WinstonEntityModel.FK_VoucherTransaction_KeyAccount" FromRole="VoucherTransaction" ToRole="KeyAccount" />
+    <NavigationProperty Name="Offer" Relationship="WinstonEntityModel.FK_VoucherTransaction_Offer" FromRole="VoucherTransaction" ToRole="Offer" />
+    <NavigationProperty Name="User" Relationship="WinstonEntityModel.FK_VoucherTransaction_User" FromRole="VoucherTransaction" ToRole="User" />
+    <NavigationProperty Name="UserVoucher" Relationship="WinstonEntityModel.FK_VoucherTransaction_UserVoucher" FromRole="VoucherTransaction" ToRole="UserVoucher" />
+    <NavigationProperty Name="Voucher" Relationship="WinstonEntityModel.FK_VoucherTransaction_Voucher" FromRole="VoucherTransaction" ToRole="Voucher" />
+  </EntityType>
+  <EntityType Name="VoucherTypeEnum">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Voucher" Relationship="WinstonEntityModel.FK_Voucher_VoucherTypeEnum" FromRole="VoucherTypeEnum" ToRole="Voucher" />
+  </EntityType>
+  <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+    <End Type="WinstonEntityModel.AspNetUsers" Role="AspNetUsers" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="WinstonEntityModel.AspNetUserClaims" Role="AspNetUserClaims" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserClaims">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+    <End Type="WinstonEntityModel.AspNetUsers" Role="AspNetUsers" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="WinstonEntityModel.AspNetUserLogins" Role="AspNetUserLogins" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserLogins">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Voucher_CalculationTypeEnum">
+    <End Type="WinstonEntityModel.CalculationTypeEnum" Role="CalculationTypeEnum" Multiplicity="1" />
+    <End Type="WinstonEntityModel.Voucher" Role="Voucher" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CalculationTypeEnum">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Voucher">
+        <PropertyRef Name="CalculationType" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Voucher_KeyAccount">
+    <End Type="WinstonEntityModel.KeyAccount" Role="KeyAccount" Multiplicity="0..1" />
+    <End Type="WinstonEntityModel.Voucher" Role="Voucher" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="KeyAccount">
+        <PropertyRef Name="KeyAccountID" />
+      </Principal>
+      <Dependent Role="Voucher">
+        <PropertyRef Name="KeyAcountID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_VoucherTransaction_KeyAccount">
+    <End Type="WinstonEntityModel.KeyAccount" Role="KeyAccount" Multiplicity="1" />
+    <End Type="WinstonEntityModel.VoucherTransaction" Role="VoucherTransaction" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="KeyAccount">
+        <PropertyRef Name="KeyAccountID" />
+      </Principal>
+      <Dependent Role="VoucherTransaction">
+        <PropertyRef Name="KeyAccountID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Offer_UserSegment">
+    <End Type="WinstonEntityModel.UserSegment" Role="UserSegment" Multiplicity="1" />
+    <End Type="WinstonEntityModel.Offer" Role="Offer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserSegment">
+        <PropertyRef Name="UserSegmentID" />
+      </Principal>
+      <Dependent Role="Offer">
+        <PropertyRef Name="UserSegmentID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Voucher_Offer">
+    <End Type="WinstonEntityModel.Offer" Role="Offer" Multiplicity="1" />
+    <End Type="WinstonEntityModel.Voucher" Role="Voucher" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Offer">
+        <PropertyRef Name="OfferID" />
+      </Principal>
+      <Dependent Role="Voucher">
+        <PropertyRef Name="OfferID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_VoucherTransaction_Offer">
+    <End Type="WinstonEntityModel.Offer" Role="Offer" Multiplicity="1" />
+    <End Type="WinstonEntityModel.VoucherTransaction" Role="VoucherTransaction" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Offer">
+        <PropertyRef Name="OfferID" />
+      </Principal>
+      <Dependent Role="VoucherTransaction">
+        <PropertyRef Name="OfferID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserVoucher_User">
+    <End Type="WinstonEntityModel.User" Role="User" Multiplicity="1" />
+    <End Type="WinstonEntityModel.UserVoucher" Role="UserVoucher" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="UserVoucher">
+        <PropertyRef Name="UserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_VoucherTransaction_User">
+    <End Type="WinstonEntityModel.User" Role="User" Multiplicity="1" />
+    <End Type="WinstonEntityModel.VoucherTransaction" Role="VoucherTransaction" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="VoucherTransaction">
+        <PropertyRef Name="UserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserVoucher_Voucher">
+    <End Type="WinstonEntityModel.Voucher" Role="Voucher" Multiplicity="1" />
+    <End Type="WinstonEntityModel.UserVoucher" Role="UserVoucher" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Voucher">
+        <PropertyRef Name="VoucherID" />
+      </Principal>
+      <Dependent Role="UserVoucher">
+        <PropertyRef Name="VoucherID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_VoucherTransaction_UserVoucher">
+    <End Type="WinstonEntityModel.UserVoucher" Role="UserVoucher" Multiplicity="1" />
+    <End Type="WinstonEntityModel.VoucherTransaction" Role="VoucherTransaction" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserVoucher">
+        <PropertyRef Name="UserVoucherID" />
+      </Principal>
+      <Dependent Role="VoucherTransaction">
+        <PropertyRef Name="UserVoucherID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Voucher_VoucherTypeEnum">
+    <End Type="WinstonEntityModel.VoucherTypeEnum" Role="VoucherTypeEnum" Multiplicity="1" />
+    <End Type="WinstonEntityModel.Voucher" Role="Voucher" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="VoucherTypeEnum">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Voucher">
+        <PropertyRef Name="Type" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_VoucherTransaction_Voucher">
+    <End Type="WinstonEntityModel.Voucher" Role="Voucher" Multiplicity="1" />
+    <End Type="WinstonEntityModel.VoucherTransaction" Role="VoucherTransaction" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Voucher">
+        <PropertyRef Name="VoucherID" />
+      </Principal>
+      <Dependent Role="VoucherTransaction">
+        <PropertyRef Name="VoucherID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="AspNetUserRoles">
+    <End Type="WinstonEntityModel.AspNetRoles" Role="AspNetRoles" Multiplicity="*" />
+    <End Type="WinstonEntityModel.AspNetUsers" Role="AspNetUsers" Multiplicity="*" />
+  </Association>
+</Schema>

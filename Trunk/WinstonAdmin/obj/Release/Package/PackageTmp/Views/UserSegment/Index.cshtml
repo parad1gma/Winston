@@ -1,0 +1,117 @@
+﻿@model IEnumerable<Winston.Models.UserSegmentViewModel>
+
+@{
+    ViewBag.Title = "User Segment";
+}
+
+<h2>User Segments</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table table-striped table-hover" >
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Gender)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DateOfBirthFrom)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DateOfBirthTo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ZipCode)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Gender)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateOfBirthFrom)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateOfBirthTo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ZipCode)
+            </td>
+            <td style="text-align: center">
+                <a class="btn btn-xs btn-default" href="/UserSegment/Edit/@item.UserSegmentID">
+                    <i class="glyphicon glyphicon-edit"></i>
+                    Edit
+                </a>
+                @if (@item.Assigned)
+                {
+                    <button disabled="disabled" class="btn btn-xs btn-default">
+                        <i class="glyphicon glyphicon-remove"></i>
+                        Delete
+                    </button>
+                }
+                else
+                {
+                    <button onclick="Delete(@item.UserSegmentID)" class="btn btn-xs btn-default">
+                        <i class="glyphicon glyphicon-remove"></i>
+                        Delete
+                    </button>
+                }
+            </td>
+        </tr>
+    }
+
+</table>
+
+@section Scripts {
+    <script>
+
+        function Delete(id) {
+            console.log(id);
+
+            bootbox.confirm({
+                size: "small",
+                message: "Are you sure?",
+                buttons: {
+                    confirm: {
+                        label: 'Yes',
+                        className: 'btn-success'
+                    },
+                    cancel: {
+                        label: 'No',
+                        className: 'btn-danger'
+                    }
+                },
+                callback: function (result) {
+                    if (result == true) {
+                        $.ajax({
+                            url: '/UserSegment/Delete/' + id,
+                            type: 'post',
+                            dataType: 'json',
+                            data: id,
+                            success: function (response) {
+                                if (response.Message == null) {
+                                    bootbox.alert("User segment successfully deleted!", function (result) { window.location = "/UserSegment/Index"; });
+                                }
+                                else {
+                                    bootbox.alert(response.Message);
+                                    return false;
+                                }
+                            }
+                        });
+                    }
+                }
+            });
+        }
+
+    </script>
+}

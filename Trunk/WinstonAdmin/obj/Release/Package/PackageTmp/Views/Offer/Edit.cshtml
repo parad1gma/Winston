@@ -1,0 +1,214 @@
+﻿@using Winston.Common
+@using Winston.Models
+@model IResponse<OfferCreateModel>
+
+@{
+    ViewBag.Title = "Offer";
+}
+
+<h2>Offer</h2>
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>Edit</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+        @Html.HiddenFor(model => model.Value.OfferID)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Value.Title, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Value.Title, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Value.Title, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Value.DateFrom, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <input name="Value.DateFrom" class="form-control text-box single-line" id="Value_DateFrom" type="text" value="@Model.Value.DateFrom.Date.ToString("d")">
+                <span id="errorDateFrom" style="color:#a94442;" class="hidden">The Date From field is required.</span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Value.DateTo, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <input name="Value.DateTo" class="form-control text-box single-line" id="Value_DateTo" type="text" value="@Model.Value.DateTo.Date.ToString("d")">
+                <span id="errorDateTo" style="color:#a94442;" class="hidden">The Date To field is required.</span>
+                <span id="errorDate" style="color:#a94442;" class="hidden">The end date cannot be less then the start date.</span>
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Value.UserSegment, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.Value.UserSegment, Model.Value.UserSegmentList.Select(o => new SelectListItem { Value = o.Id.ToString(), Text = o.Value }), "", new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Value.UserSegment, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Value.Messages, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Value.Messages, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Value.Messages, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Value.Active, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.CheckBoxFor(model => model.Value.Active)
+                @Html.ValidationMessageFor(model => model.Value.Active, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input id="submit" type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+
+    <script>
+
+        var dateformat = "@Globalization.Culture.DateTimeFormat.ShortDatePattern";
+
+        switch (dateformat) {
+            case "d.M.yyyy.":
+                dateformat = "d.m.yyyy.";
+                break;
+            case "dd.MM.yyyy.":
+                dateformat = "dd.mm.yyyy.";
+                break;
+            case "M/d/yyyy":
+                dateformat = "m/d/yyyy";
+                break;
+            case "MM/dd/yyyy":
+                dateformat = "mm/dd/yyyy";
+                break;
+            default:
+                dateformat = "mm-dd-yyyy";
+        }
+
+        $("#Value_DateFrom").datepicker({
+            format: dateformat
+        }).on('changeDate', function (e) {
+            $(this).datepicker('hide');
+            $("#errorDateFrom").addClass("hidden");
+            $("#errorDate").addClass("hidden");
+        }).keydown(function () {
+            $(this).datepicker('hide');
+            $("#errorDateFrom").addClass("hidden");
+            $("#errorDate").addClass("hidden");
+        });
+
+        $("#Value_DateTo").datepicker({
+            format: dateformat
+        }).on('changeDate', function (e) {
+            $(this).datepicker('hide');
+            $("#errorDateTo").addClass("hidden");
+            $("#errorDate").addClass("hidden");
+        }).keydown(function () {
+            $(this).datepicker('hide');
+            $("#errorDateTo").addClass("hidden");
+            $("#errorDate").addClass("hidden");
+        });
+
+
+
+        $("#submit").click(function (e) {
+            var validated = true;
+
+            offerID = $("#Value_OfferID").val();
+            title = $("#Value_Title").val();
+            dateFrom = $("#Value_DateFrom").val();
+            dateTo = $("#Value_DateTo").val();
+            userSegment = $("#Value_UserSegment").val();
+            messages = $("#Value_Messages").val();
+            active = $("#Value_Active").prop('checked');
+
+            var offer = {
+                OfferID: offerID,
+                Title: title,
+                DateFrom: dateFrom,
+                DateTo: dateTo,
+                UserSegment: userSegment,
+                Messages: messages,
+                Active: active
+            };
+
+            // Validation of razor fields
+            if (title == "" || userSegment == "") {
+                validated = false;
+            } else {
+                e.preventDefault();
+            }
+            // Validation of dateFrom field
+            var dateFromValid = moment(dateFrom, dateformat.toUpperCase(), true).isValid();
+            if (dateFrom == "") {
+                $("#errorDateFrom").text("The Date From field is required.").removeClass("hidden");
+                validated = false;
+            } else {
+                if (!dateFromValid) {
+                    $("#errorDateFrom").text("The field Date From must be a date.").removeClass("hidden");
+                    validated = false;
+                };
+            };
+
+            // Validation of dateTo field
+            var dateToValid = moment(dateTo, dateformat.toUpperCase(), true).isValid();
+            if (dateTo == "") {
+                $("#errorDateTo").text("The Date To field is required.").removeClass("hidden");
+                validated = false;
+            } else {
+                if (!dateToValid) {
+                    $("#errorDateTo").text("The field Date To must be a date.").removeClass("hidden");
+                    validated = false;
+                };
+            };
+
+            // Validation dateTo > dateFrom
+            if (dateFromValid && dateToValid) {
+                if (moment(moment(dateFrom, dateformat.toUpperCase(), true)).isAfter(moment(dateTo, dateformat.toUpperCase(), true))) {
+                    $("#errorDate").text("The end date cannot be less then the start date.").removeClass("hidden");
+                    validated = false;
+                };
+            };
+            
+            if (validated) {
+                e.preventDefault();
+
+                $.ajax({
+                    url: '/Offer/Edit',
+                    type: 'post',
+                    dataType: 'json',
+                    data: offer,
+                    success: function (response) {
+                        if (response.Message == null) {
+                            bootbox.alert("Offer successfully updated!", function (result) { window.location = "/Offer/Index"; });
+                        }
+                        else {
+                            bootbox.alert(response.Message);
+                            return false;
+                        }
+                    }
+                });
+            }
+        });
+
+    </script>
+
+}

@@ -1,0 +1,17 @@
+C:\Users\paradigma\Source\Workspaces\Winston\Trunk\WinstonBL\bin\Debug\Winston.BL.dll
+C:\Users\paradigma\Source\Workspaces\Winston\Trunk\WinstonBL\bin\Debug\Winston.BL.pdb
+C:\Users\paradigma\Source\Workspaces\Winston\Trunk\WinstonBL\bin\Debug\Winston.Common.dll
+C:\Users\paradigma\Source\Workspaces\Winston\Trunk\WinstonBL\bin\Debug\Winston.DAL.dll
+C:\Users\paradigma\Source\Workspaces\Winston\Trunk\WinstonBL\bin\Debug\Winston.Models.dll
+C:\Users\paradigma\Source\Workspaces\Winston\Trunk\WinstonBL\bin\Debug\log4net.dll
+C:\Users\paradigma\Source\Workspaces\Winston\Trunk\WinstonBL\bin\Debug\Newtonsoft.Json.dll
+C:\Users\paradigma\Source\Workspaces\Winston\Trunk\WinstonBL\bin\Debug\EntityFramework.dll
+C:\Users\paradigma\Source\Workspaces\Winston\Trunk\WinstonBL\bin\Debug\Winston.Common.pdb
+C:\Users\paradigma\Source\Workspaces\Winston\Trunk\WinstonBL\bin\Debug\Winston.DAL.pdb
+C:\Users\paradigma\Source\Workspaces\Winston\Trunk\WinstonBL\bin\Debug\Winston.Models.pdb
+C:\Users\paradigma\Source\Workspaces\Winston\Trunk\WinstonBL\bin\Debug\log4net.xml
+C:\Users\paradigma\Source\Workspaces\Winston\Trunk\WinstonBL\bin\Debug\Newtonsoft.Json.xml
+C:\Users\paradigma\Source\Workspaces\Winston\Trunk\WinstonBL\bin\Debug\EntityFramework.xml
+C:\Users\paradigma\Source\Workspaces\Winston\Trunk\WinstonBL\obj\Debug\Winston.BL.csprojResolveAssemblyReference.cache
+C:\Users\paradigma\Source\Workspaces\Winston\Trunk\WinstonBL\obj\Debug\Winston.BL.dll
+C:\Users\paradigma\Source\Workspaces\Winston\Trunk\WinstonBL\obj\Debug\Winston.BL.pdb

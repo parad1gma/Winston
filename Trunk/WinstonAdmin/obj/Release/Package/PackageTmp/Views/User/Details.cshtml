@@ -1,0 +1,347 @@
+﻿@model Winston.Models.UserDetailsModel
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>User</h2>
+<p>
+    <button type="button" class="btn btn-info" onclick="AddPoints(@Model.UserDetails.Value.UserID)">
+        Point Balance
+        <span class="badge">@Model.UserDetails.Value.PointBalance</span>
+    </button>
+</p>
+
+
+<div class="tabbable">
+    <ul class="nav nav-tabs">
+        <li class="active">
+            <a data-toggle="tab" href="#details">
+                <i class="glyphicon glyphicon-zoom-in"></i>
+                &nbsp;
+                Details
+            </a>
+        </li>
+        <li>
+            <a data-toggle="tab" href="#offeredvouchers">
+                Offered Voucher(s)
+            </a>
+        </li>
+        <li>
+            <a data-toggle="tab" href="#uservouchers">
+                <i class="glyphicon glyphicon-tags"></i>
+                &nbsp;
+                User Voucher(s)
+            </a>
+        </li>
+    </ul>
+
+    <div class="tab-content">
+        <br>
+        <div id="details" class="tab-pane active">
+            <dl class="dl-horizontal">
+                @Html.HiddenFor(model => model.UserDetails.Value.UserID)
+                <dt>
+                    @Html.DisplayNameFor(model => model.UserDetails.Value.Username)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.UserDetails.Value.Username)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.UserDetails.Value.FirstName)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.UserDetails.Value.FirstName)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.UserDetails.Value.LastName)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.UserDetails.Value.LastName)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.UserDetails.Value.ZipCode)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.UserDetails.Value.ZipCode)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.UserDetails.Value.City)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.UserDetails.Value.City)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.UserDetails.Value.Street)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.UserDetails.Value.Street)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.UserDetails.Value.StreetNumber)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.UserDetails.Value.StreetNumber)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.UserDetails.Value.AdressInfo)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.UserDetails.Value.AdressInfo)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.UserDetails.Value.Email)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.UserDetails.Value.Email)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.UserDetails.Value.DateOfBirth)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.UserDetails.Value.DateOfBirth)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.UserDetails.Value.PointBalance)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.UserDetails.Value.PointBalance)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.UserDetails.Value.CreatedDate)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.UserDetails.Value.CreatedDate)
+                </dd>
+            </dl>
+        </div>
+
+        <div id="offeredvouchers" class="tab-pane">
+            <table class="table table-striped">
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Vouchers.Value[0].OfferName)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Vouchers.Value[0].Name)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Vouchers.Value[0].PointCost)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Vouchers.Value[0].Type)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Vouchers.Value[0].ExpirationDate)
+                    </th>
+                    <th></th>
+                </tr>
+
+                @foreach (var item in Model.Vouchers.Value)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.OfferName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Name)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.PointCost)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Type)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.ExpirationDate)
+                        </td>
+                        <td style="text-align: center">
+
+                            @*@if (@item.Valid)
+                                {*@
+                            <a class="btn btn-xs btn-default" title="Buy voucher" id="spendPoints" onclick="buyVoucher(@item.VoucherID, @item.OfferID)">
+                                <i class="glyphicon glyphicon-shopping-cart"></i>
+                                Spend points
+                            </a>
+                            @*}
+                                else
+                                {
+                                    <a class="btn btn-xs btn-default" disabled="disabled">
+                                        <i class="glyphicon glyphicon-shopping-cart"></i>
+                                        Spend points
+                                    </a>
+                                }*@
+                        </td>
+                    </tr>
+                }
+
+            </table>
+        </div>
+        <div id="uservouchers" class="tab-pane">
+            <table class="table table-striped">
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.UserVouchers.Value[0].OfferTitle)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.UserVouchers.Value[0].Code)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.UserVouchers.Value[0].ValidTo)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.UserVouchers.Value[0].RedeemDate)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.UserVouchers.Value[0].Valid)
+                    </th>
+                    <th></th>
+                </tr>
+
+                @foreach (var item in Model.UserVouchers.Value)
+                {
+
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.OfferTitle)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Code)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.ValidTo)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.RedeemDate)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Valid)
+                        </td>
+                        <td>
+                            @*@Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })*@
+                        </td>
+                    </tr>
+                }
+            </table>
+        </div>
+    </div>
+</div>
+
+<p>
+    @*@Html.ActionLink("Edit", "Edit", new { id = Model.Value.UserID  }) |*@
+    @Html.ActionLink("Back to List", "Index")
+</p>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+
+    <script>
+
+        function buyVoucher(voucherID, offerID){
+
+            offerID = offerID;
+            voucherID = voucherID;
+            userID = $("#UserDetails_Value_UserID").val();
+            //redeemDate = $("#item_RedeemDate").val();
+
+            var userVoucher = {
+                OfferID: offerID,
+                VoucherID: voucherID,
+                UserID: userID,
+                //RedeemDate: redeemDate
+            };
+
+            bootbox.confirm({
+                size: "small",
+                message: "Are you sure?",
+                buttons: {
+                    confirm: {
+                        label: 'Yes',
+                        className: 'btn-success'
+                    },
+                    cancel: {
+                        label: 'No',
+                        className: 'btn-danger'
+                    }
+                },
+                callback: function (result) {
+                    if (result == true) {
+                        $.ajax({
+                            url: '/User/CreateUserVoucher',
+                            type: 'post',
+                            dataType: 'json',
+                            data: userVoucher,
+                            success: function (response) {
+                                if (response.Message == null) {
+                                    bootbox.alert("Voucher successfully bought!", function (result) { window.location = "/User/Details/" + userID; });
+                                }
+                                else {
+                                    bootbox.alert(response.Message);
+                                    return false;
+                                }
+                            }
+                        });
+                    }
+                }
+            });
+        };
+
+        function AddPoints(userId){
+            bootbox.prompt({
+                title: "Enter your code",
+                size: 'small',
+                callback: function (result) {
+                    if (result){
+                        var user = {
+                            UserID: userId,
+                            Code: result
+                        };
+
+                        $.ajax({
+                            url: '/User/AddPointBalance',
+                            type: 'post',
+                            dataType: 'json',
+                            data: user,
+                            success: function (response) {
+                                if (response.Message == null) {
+                                    bootbox.alert("Successfully added points!", function (result) { window.location = "/User/Details/" + userId; });
+                                }
+                                else {
+                                    bootbox.alert(response.Message);
+                                    return false;
+                                }
+                            }
+                        });
+                    }
+                }
+            });
+        };
+
+    </script>
+
+}

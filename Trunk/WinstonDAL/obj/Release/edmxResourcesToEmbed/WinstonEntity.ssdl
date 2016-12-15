@@ -1,0 +1,442 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="WinstonEntityModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="AspNetRoles">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="256" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AspNetUserClaims">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="ClaimType" Type="nvarchar(max)" />
+    <Property Name="ClaimValue" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="AspNetUserLogins">
+    <Key>
+      <PropertyRef Name="LoginProvider" />
+      <PropertyRef Name="ProviderKey" />
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="LoginProvider" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="ProviderKey" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AspNetUserRoles">
+    <Key>
+      <PropertyRef Name="UserId" />
+      <PropertyRef Name="RoleId" />
+    </Key>
+    <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="RoleId" Type="nvarchar" MaxLength="128" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AspNetUsers">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="Email" Type="nvarchar" MaxLength="256" />
+    <Property Name="EmailConfirmed" Type="bit" Nullable="false" />
+    <Property Name="PasswordHash" Type="nvarchar(max)" />
+    <Property Name="SecurityStamp" Type="nvarchar(max)" />
+    <Property Name="PhoneNumber" Type="nvarchar(max)" />
+    <Property Name="PhoneNumberConfirmed" Type="bit" Nullable="false" />
+    <Property Name="TwoFactorEnabled" Type="bit" Nullable="false" />
+    <Property Name="LockoutEndDateUtc" Type="datetime" />
+    <Property Name="LockoutEnabled" Type="bit" Nullable="false" />
+    <Property Name="AccessFailedCount" Type="int" Nullable="false" />
+    <Property Name="UserName" Type="nvarchar" MaxLength="256" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CalculationTypeEnum">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="KeyAccount">
+    <Key>
+      <PropertyRef Name="KeyAccountID" />
+    </Key>
+    <Property Name="KeyAccountID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Logo" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="Offer">
+    <Key>
+      <PropertyRef Name="OfferID" />
+    </Key>
+    <Property Name="OfferID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Title" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="DateFrom" Type="datetime" Nullable="false" />
+    <Property Name="DateTo" Type="datetime" Nullable="false" />
+    <Property Name="UserSegmentID" Type="bigint" Nullable="false" />
+    <Property Name="Messages" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Active" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="UserID" />
+    </Key>
+    <Property Name="UserID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Username" Type="nvarchar" MaxLength="256" Nullable="false" />
+    <Property Name="Password" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Gender" Type="int" Nullable="false" />
+    <Property Name="FirstName" Type="nvarchar" MaxLength="256" Nullable="false" />
+    <Property Name="LastName" Type="nvarchar" MaxLength="256" Nullable="false" />
+    <Property Name="ZipCode" Type="nvarchar" MaxLength="256" Nullable="false" />
+    <Property Name="City" Type="nvarchar" MaxLength="256" Nullable="false" />
+    <Property Name="Street" Type="nvarchar" MaxLength="256" Nullable="false" />
+    <Property Name="StreetNumber" Type="nvarchar" MaxLength="256" Nullable="false" />
+    <Property Name="AdressInfo" Type="nvarchar" MaxLength="256" />
+    <Property Name="Email" Type="nvarchar" MaxLength="256" Nullable="false" />
+    <Property Name="DateOfBirth" Type="date" Nullable="false" />
+    <Property Name="PointBalance" Type="int" Nullable="false" />
+    <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="UserSegment">
+    <Key>
+      <PropertyRef Name="UserSegmentID" />
+    </Key>
+    <Property Name="UserSegmentID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="256" Nullable="false" />
+    <Property Name="Gender" Type="int" Nullable="false" />
+    <Property Name="DateOfBirthFrom" Type="date" />
+    <Property Name="DateOfBirthTo" Type="date" />
+    <Property Name="ZipCode" Type="nvarchar" MaxLength="256" />
+  </EntityType>
+  <EntityType Name="UserVoucher">
+    <Key>
+      <PropertyRef Name="UserVoucherID" />
+    </Key>
+    <Property Name="UserVoucherID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Code" Type="nvarchar" MaxLength="256" Nullable="false" />
+    <Property Name="OfferID" Type="bigint" Nullable="false" />
+    <Property Name="VoucherID" Type="bigint" Nullable="false" />
+    <Property Name="UserID" Type="bigint" Nullable="false" />
+    <Property Name="ValidFrom" Type="datetime" Nullable="false" />
+    <Property Name="ValidTo" Type="datetime" Nullable="false" />
+    <Property Name="RedeemDate" Type="datetime" Nullable="false" />
+    <Property Name="Valid" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Voucher">
+    <Key>
+      <PropertyRef Name="VoucherID" />
+    </Key>
+    <Property Name="VoucherID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="OfferID" Type="bigint" Nullable="false" />
+    <Property Name="Code" Type="nvarchar" MaxLength="256" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="256" Nullable="false" />
+    <Property Name="Description" Type="nvarchar(max)" />
+    <Property Name="Images" Type="varbinary(max)" />
+    <Property Name="PointCost" Type="int" Nullable="false" />
+    <Property Name="Type" Type="int" Nullable="false" />
+    <Property Name="Amount" Type="int" Nullable="false" />
+    <Property Name="CalculationType" Type="int" Nullable="false" />
+    <Property Name="ExpirationDate" Type="datetime" Nullable="false" />
+    <Property Name="KeyAcountID" Type="bigint" />
+    <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="VoucherTransaction">
+    <Key>
+      <PropertyRef Name="VoucherTransactionID" />
+    </Key>
+    <Property Name="VoucherTransactionID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserVoucherID" Type="bigint" Nullable="false" />
+    <Property Name="VoucherID" Type="bigint" Nullable="false" />
+    <Property Name="UserID" Type="bigint" Nullable="false" />
+    <Property Name="OfferID" Type="bigint" Nullable="false" />
+    <Property Name="KeyAccountID" Type="bigint" Nullable="false" />
+    <Property Name="Amount" Type="int" Nullable="false" />
+    <Property Name="TimeStamp" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="VoucherTypeEnum">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_AspNetUserRoles_AspNetRoles">
+    <End Role="AspNetRoles" Type="Self.AspNetRoles" Multiplicity="1" />
+    <End Role="AspNetUserRoles" Type="Self.AspNetUserRoles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetRoles">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserRoles">
+        <PropertyRef Name="RoleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+    <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AspNetUserClaims" Type="Self.AspNetUserClaims" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserClaims">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+    <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AspNetUserLogins" Type="Self.AspNetUserLogins" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserLogins">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId">
+    <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AspNetUserRoles" Type="Self.AspNetUserRoles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserRoles">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Offer_UserSegment">
+    <End Role="UserSegment" Type="Self.UserSegment" Multiplicity="1" />
+    <End Role="Offer" Type="Self.Offer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserSegment">
+        <PropertyRef Name="UserSegmentID" />
+      </Principal>
+      <Dependent Role="Offer">
+        <PropertyRef Name="UserSegmentID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserVoucher_User">
+    <End Role="User" Type="Self.User" Multiplicity="1" />
+    <End Role="UserVoucher" Type="Self.UserVoucher" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="UserVoucher">
+        <PropertyRef Name="UserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserVoucher_Voucher">
+    <End Role="Voucher" Type="Self.Voucher" Multiplicity="1" />
+    <End Role="UserVoucher" Type="Self.UserVoucher" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Voucher">
+        <PropertyRef Name="VoucherID" />
+      </Principal>
+      <Dependent Role="UserVoucher">
+        <PropertyRef Name="VoucherID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Voucher_CalculationTypeEnum">
+    <End Role="CalculationTypeEnum" Type="Self.CalculationTypeEnum" Multiplicity="1" />
+    <End Role="Voucher" Type="Self.Voucher" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CalculationTypeEnum">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Voucher">
+        <PropertyRef Name="CalculationType" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Voucher_KeyAccount">
+    <End Role="KeyAccount" Type="Self.KeyAccount" Multiplicity="0..1" />
+    <End Role="Voucher" Type="Self.Voucher" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="KeyAccount">
+        <PropertyRef Name="KeyAccountID" />
+      </Principal>
+      <Dependent Role="Voucher">
+        <PropertyRef Name="KeyAcountID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Voucher_Offer">
+    <End Role="Offer" Type="Self.Offer" Multiplicity="1" />
+    <End Role="Voucher" Type="Self.Voucher" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Offer">
+        <PropertyRef Name="OfferID" />
+      </Principal>
+      <Dependent Role="Voucher">
+        <PropertyRef Name="OfferID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Voucher_VoucherTypeEnum">
+    <End Role="VoucherTypeEnum" Type="Self.VoucherTypeEnum" Multiplicity="1" />
+    <End Role="Voucher" Type="Self.Voucher" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="VoucherTypeEnum">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Voucher">
+        <PropertyRef Name="Type" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_VoucherTransaction_KeyAccount">
+    <End Role="KeyAccount" Type="Self.KeyAccount" Multiplicity="1" />
+    <End Role="VoucherTransaction" Type="Self.VoucherTransaction" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="KeyAccount">
+        <PropertyRef Name="KeyAccountID" />
+      </Principal>
+      <Dependent Role="VoucherTransaction">
+        <PropertyRef Name="KeyAccountID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_VoucherTransaction_Offer">
+    <End Role="Offer" Type="Self.Offer" Multiplicity="1" />
+    <End Role="VoucherTransaction" Type="Self.VoucherTransaction" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Offer">
+        <PropertyRef Name="OfferID" />
+      </Principal>
+      <Dependent Role="VoucherTransaction">
+        <PropertyRef Name="OfferID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_VoucherTransaction_User">
+    <End Role="User" Type="Self.User" Multiplicity="1" />
+    <End Role="VoucherTransaction" Type="Self.VoucherTransaction" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="VoucherTransaction">
+        <PropertyRef Name="UserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_VoucherTransaction_UserVoucher">
+    <End Role="UserVoucher" Type="Self.UserVoucher" Multiplicity="1" />
+    <End Role="VoucherTransaction" Type="Self.VoucherTransaction" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserVoucher">
+        <PropertyRef Name="UserVoucherID" />
+      </Principal>
+      <Dependent Role="VoucherTransaction">
+        <PropertyRef Name="UserVoucherID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_VoucherTransaction_Voucher">
+    <End Role="Voucher" Type="Self.Voucher" Multiplicity="1" />
+    <End Role="VoucherTransaction" Type="Self.VoucherTransaction" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Voucher">
+        <PropertyRef Name="VoucherID" />
+      </Principal>
+      <Dependent Role="VoucherTransaction">
+        <PropertyRef Name="VoucherID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="WinstonEntityModelStoreContainer">
+    <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRoles" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AspNetUserClaims" EntityType="Self.AspNetUserClaims" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogins" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AspNetUserRoles" EntityType="Self.AspNetUserRoles" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUsers" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CalculationTypeEnum" EntityType="Self.CalculationTypeEnum" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="KeyAccount" EntityType="Self.KeyAccount" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Offer" EntityType="Self.Offer" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UserSegment" EntityType="Self.UserSegment" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UserVoucher" EntityType="Self.UserVoucher" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Voucher" EntityType="Self.Voucher" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="VoucherTransaction" EntityType="Self.VoucherTransaction" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="VoucherTypeEnum" EntityType="Self.VoucherTypeEnum" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_AspNetUserRoles_AspNetRoles" Association="Self.FK_AspNetUserRoles_AspNetRoles">
+      <End Role="AspNetRoles" EntitySet="AspNetRoles" />
+      <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="AspNetUserClaims" EntitySet="AspNetUserClaims" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="AspNetUserLogins" EntitySet="AspNetUserLogins" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Offer_UserSegment" Association="Self.FK_Offer_UserSegment">
+      <End Role="UserSegment" EntitySet="UserSegment" />
+      <End Role="Offer" EntitySet="Offer" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserVoucher_User" Association="Self.FK_UserVoucher_User">
+      <End Role="User" EntitySet="User" />
+      <End Role="UserVoucher" EntitySet="UserVoucher" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserVoucher_Voucher" Association="Self.FK_UserVoucher_Voucher">
+      <End Role="Voucher" EntitySet="Voucher" />
+      <End Role="UserVoucher" EntitySet="UserVoucher" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Voucher_CalculationTypeEnum" Association="Self.FK_Voucher_CalculationTypeEnum">
+      <End Role="CalculationTypeEnum" EntitySet="CalculationTypeEnum" />
+      <End Role="Voucher" EntitySet="Voucher" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Voucher_KeyAccount" Association="Self.FK_Voucher_KeyAccount">
+      <End Role="KeyAccount" EntitySet="KeyAccount" />
+      <End Role="Voucher" EntitySet="Voucher" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Voucher_Offer" Association="Self.FK_Voucher_Offer">
+      <End Role="Offer" EntitySet="Offer" />
+      <End Role="Voucher" EntitySet="Voucher" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Voucher_VoucherTypeEnum" Association="Self.FK_Voucher_VoucherTypeEnum">
+      <End Role="VoucherTypeEnum" EntitySet="VoucherTypeEnum" />
+      <End Role="Voucher" EntitySet="Voucher" />
+    </AssociationSet>
+    <AssociationSet Name="FK_VoucherTransaction_KeyAccount" Association="Self.FK_VoucherTransaction_KeyAccount">
+      <End Role="KeyAccount" EntitySet="KeyAccount" />
+      <End Role="VoucherTransaction" EntitySet="VoucherTransaction" />
+    </AssociationSet>
+    <AssociationSet Name="FK_VoucherTransaction_Offer" Association="Self.FK_VoucherTransaction_Offer">
+      <End Role="Offer" EntitySet="Offer" />
+      <End Role="VoucherTransaction" EntitySet="VoucherTransaction" />
+    </AssociationSet>
+    <AssociationSet Name="FK_VoucherTransaction_User" Association="Self.FK_VoucherTransaction_User">
+      <End Role="User" EntitySet="User" />
+      <End Role="VoucherTransaction" EntitySet="VoucherTransaction" />
+    </AssociationSet>
+    <AssociationSet Name="FK_VoucherTransaction_UserVoucher" Association="Self.FK_VoucherTransaction_UserVoucher">
+      <End Role="UserVoucher" EntitySet="UserVoucher" />
+      <End Role="VoucherTransaction" EntitySet="VoucherTransaction" />
+    </AssociationSet>
+    <AssociationSet Name="FK_VoucherTransaction_Voucher" Association="Self.FK_VoucherTransaction_Voucher">
+      <End Role="Voucher" EntitySet="Voucher" />
+      <End Role="VoucherTransaction" EntitySet="VoucherTransaction" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

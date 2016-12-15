@@ -1,0 +1,96 @@
+﻿@model IEnumerable<Winston.Models.UserViewModel>
+
+@{
+    ViewBag.Title = "Users";
+}
+
+<h2>Users</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table table-hover table-striped" >
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.UserID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Username)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FirstName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LastName)
+        </th>
+        
+        <th>
+            @Html.DisplayNameFor(model => model.Email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DateOfBirth)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PointBalance)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CreatedDate)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model)
+{
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.UserID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Username)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FirstName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LastName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Email)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DateOfBirth)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PointBalance)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CreatedDate)
+        </td>
+        <td>
+            <a class="btn btn-xs btn-default" href="/User/Details/@item.UserID">
+                <i class="glyphicon glyphicon-zoom-in"></i>
+                Details
+            </a>
+            @*<a class="btn btn-xs btn-default" href="/User/GetUserVauchers/@item.UserID">
+                <i class="glyphicon glyphicon-tags"></i>
+                User Voucher(s)
+            </a>
+            @if (item.PointBalance != 0)
+            {
+                <a class="btn btn-xs btn-default" title="Buy voucher" href="/UserVoucher/Create/@item.UserID">
+                    <i class="glyphicon glyphicon-shopping-cart"></i>
+                    Spend points
+                </a>
+            }
+            else
+            {
+                <a class="btn btn-xs btn-default" href="/UserVoucher/Create/@item.UserID" disabled="disabled">
+                    <i class="glyphicon glyphicon-shopping-cart"></i>
+                    Spend points
+                </a>
+            }*@
+        </td>
+    </tr>
+}
+
+</table>

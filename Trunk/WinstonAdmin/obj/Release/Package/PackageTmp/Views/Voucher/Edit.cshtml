@@ -1,0 +1,217 @@
+﻿@using Winston.Common
+@model IResponse<Winston.Models.VoucherCreateModel>
+
+@{
+    ViewBag.Title = "Voucher";
+}
+
+<h2>Voucher</h2>
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>Edit</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+        @Html.HiddenFor(model => model.Value.VoucherID)
+        <div class="form-group">
+            @Html.LabelFor(model => model.Value.Name, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Value.Name, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Value.Name, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Value.OfferID, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.Value.OfferID, Model.Value.Offers.Select(s => new SelectListItem { Value = s.Id.ToString(), Text = s.Value }), "", new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Value.OfferID, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Value.Description, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Value.Description, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Value.Description, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Value.Code, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Value.Code, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Value.Code, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Value.Type, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EnumDropDownListFor(model => model.Value.Type, "", new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Value.Type, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Value.CalculationType, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EnumDropDownListFor(model => model.Value.CalculationType, "", new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Value.CalculationType, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Value.PointCost, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Value.PointCost, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Value.PointCost, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Value.Amount, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Value.Amount, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Value.Amount, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Value.ExpirationDate, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <input name="Value.ExpirationDate" class="form-control text-box single-line" id="Value_ExpirationDate" type="text" value="@Model.Value.ExpirationDate.Date.ToString("d")">
+                <span id="errorExpirationDate" style="color:#a94442;" class="hidden"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Value.KeyAcountID, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.Value.KeyAcountID, Model.Value.KeyAccounts.Select(s => new SelectListItem { Value = s.Id.ToString(), Text = s.Value }), "", new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Value.KeyAcountID, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input id="submit" type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    <script>
+
+        var dateformat = "@Globalization.Culture.DateTimeFormat.ShortDatePattern";
+
+        switch (dateformat) {
+            case "d.M.yyyy.":
+                dateformat = "d.m.yyyy.";
+                break;
+            case "dd.MM.yyyy.":
+                dateformat = "dd.mm.yyyy.";
+                break;
+            case "M/d/yyyy":
+                dateformat = "m/d/yyyy";
+                break;
+            case "MM/dd/yyyy":
+                dateformat = "mm/dd/yyyy";
+                break;
+            default:
+                dateformat = "mm-dd-yyyy";
+        }
+
+        // ExpirationDate
+        $("#Value_ExpirationDate")
+        .prop("placeholder", dateformat.toUpperCase())
+        .datepicker({
+            format: dateformat
+        })
+        .on('changeDate', function (e) {
+            $(this).datepicker('hide');
+            $("#errorExpirationDate").addClass("hidden");
+        })
+        .keydown(function () {
+            $(this).datepicker('hide');
+            $("#errorExpirationDate").addClass("hidden");
+        });
+
+        $("#submit").click(function (e) {
+            var validated = true;
+
+            var name = $("#Value_Name").val();
+            var code = $("#Value_Code").val();
+            var description = $("#Value_Description").val();
+            var pointCost = $("#Value_PointCost").val();
+            var amount = $("#Value_Amount").val();
+            var expirationDate = $("#Value_ExpirationDate").val();
+            var keyAccountId = $("#Value_KeyAcountID").val();
+            var offerId = $("#Value_OfferID").val();
+            var type = $("#Value_Type").val();
+            var calculationType = $("#Value_CalculationType").val();
+            var voucherId = $("#Value_VoucherID").val();
+
+            var data = {
+                VoucherID: voucherId,
+                Name: name,
+                Code: code,
+                Description: description,
+                PointCost: pointCost,
+                Amount: amount,
+                ExpirationDate: expirationDate,
+                KeyAcountID: keyAccountId,
+                Type: type,
+                CalculationType: calculationType,
+                OfferID: offerId
+            };
+
+            // Validation of razor fields
+            if (name == "" || code == "" || type == "" || calculationType == "" || offerId == "") {
+                validated = false;
+            } else {
+                e.preventDefault();
+            }
+            // Validation of ExpirationDate
+            var expirationDateValid = moment(expirationDate, dateformat.toUpperCase(), true).isValid();
+            if (expirationDate == "") {
+                $("#errorExpirationDate").text("The Expiration Date field is required.").removeClass("hidden");
+                validated = false;
+            } else {
+                if (!expirationDateValid) {
+                    $("#errorExpirationDate").text("The field Expiration Date must be a date.").removeClass("hidden");
+                    validated = false;
+                };
+            };
+
+            if (validated) {
+                e.preventDefault();
+
+                $.ajax({
+
+                    url: '/Voucher/Edit',
+                    type: 'post',
+                    dataType: 'json',
+                    data: data,
+                    success: function (data) {
+                        if (data.Message == null) {
+                            bootbox.alert("Voucher successfully updated!!", function () {
+
+                                setTimeout(window.location.href = ("/Voucher/Index"), 2000);
+                            });
+                        }
+                        else {
+                            bootbox.alert(data.Message);
+                            return false;
+                        }
+                    }
+                });
+
+            };
+        });
+
+
+    </script>
+}

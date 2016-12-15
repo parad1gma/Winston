@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="DefaultConnection-Web.config Connection String" description="DefaultConnection Connection String used in web.config by the application to access the database." defaultValue="Data Source=DARKMATTER\SQLEXPRESS;Initial Catalog=Winston;Integrated Security=True" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\paradigma\\Source\\Workspaces\\Winston\\Trunk\\WinstonAdmin\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='DefaultConnection']/@connectionString" />
+  </parameter>
+  <parameter name="WinstonEntities-Web.config Connection String" description="WinstonEntities Connection String used in web.config by the application to access the database." defaultValue="metadata=res://*/WinstonEntity.csdl|res://*/WinstonEntity.ssdl|res://*/WinstonEntity.msl;provider=System.Data.SqlClient;provider connection string=&quot;data source=DARKMATTER\SQLEXPRESS;initial catalog=Winston;integrated security=True;MultipleActiveResultSets=True;App=EntityFramework&quot;" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\paradigma\\Source\\Workspaces\\Winston\\Trunk\\WinstonAdmin\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='WinstonEntities']/@connectionString" />
+  </parameter>
+</parameters>

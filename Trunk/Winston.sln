@@ -1,0 +1,113 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Winston.Admin", "WinstonAdmin\Winston.Admin.csproj", "{118763DE-70F8-47EC-8328-794ECF31D5D8}"
+	ProjectSection(ProjectDependencies) = postProject
+		{7CAF5A36-E70F-4901-8AC2-1159B78BF7E8} = {7CAF5A36-E70F-4901-8AC2-1159B78BF7E8}
+		{2E3369A1-1574-4BC9-A1AB-EB12F93629DC} = {2E3369A1-1574-4BC9-A1AB-EB12F93629DC}
+		{C5B451A3-0A8E-46EB-9E60-8DBF3C6141AA} = {C5B451A3-0A8E-46EB-9E60-8DBF3C6141AA}
+		{CC98EFEC-257E-4F64-AB5E-A0C063B2EAD2} = {CC98EFEC-257E-4F64-AB5E-A0C063B2EAD2}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Winston.API", "WinstonAPI\Winston.API.csproj", "{26C00DFE-7E11-4EA0-8EBF-A88CD7130C24}"
+	ProjectSection(ProjectDependencies) = postProject
+		{7CAF5A36-E70F-4901-8AC2-1159B78BF7E8} = {7CAF5A36-E70F-4901-8AC2-1159B78BF7E8}
+		{2E3369A1-1574-4BC9-A1AB-EB12F93629DC} = {2E3369A1-1574-4BC9-A1AB-EB12F93629DC}
+		{C5B451A3-0A8E-46EB-9E60-8DBF3C6141AA} = {C5B451A3-0A8E-46EB-9E60-8DBF3C6141AA}
+		{CC98EFEC-257E-4F64-AB5E-A0C063B2EAD2} = {CC98EFEC-257E-4F64-AB5E-A0C063B2EAD2}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Winston.BL", "WinstonBL\Winston.BL.csproj", "{7CAF5A36-E70F-4901-8AC2-1159B78BF7E8}"
+	ProjectSection(ProjectDependencies) = postProject
+		{24FA1D17-681C-489D-B5BF-E64FFB52B50C} = {24FA1D17-681C-489D-B5BF-E64FFB52B50C}
+		{C5B451A3-0A8E-46EB-9E60-8DBF3C6141AA} = {C5B451A3-0A8E-46EB-9E60-8DBF3C6141AA}
+		{CC98EFEC-257E-4F64-AB5E-A0C063B2EAD2} = {CC98EFEC-257E-4F64-AB5E-A0C063B2EAD2}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Winston.DAL", "WinstonDAL\Winston.DAL.csproj", "{24FA1D17-681C-489D-B5BF-E64FFB52B50C}"
+	ProjectSection(ProjectDependencies) = postProject
+		{C5B451A3-0A8E-46EB-9E60-8DBF3C6141AA} = {C5B451A3-0A8E-46EB-9E60-8DBF3C6141AA}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Winston.Models", "WinstonModels\Winston.Models.csproj", "{CC98EFEC-257E-4F64-AB5E-A0C063B2EAD2}"
+	ProjectSection(ProjectDependencies) = postProject
+		{C5B451A3-0A8E-46EB-9E60-8DBF3C6141AA} = {C5B451A3-0A8E-46EB-9E60-8DBF3C6141AA}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Winston.Infrastructure", "Winston.Infrastructure\Winston.Infrastructure.csproj", "{2E3369A1-1574-4BC9-A1AB-EB12F93629DC}"
+	ProjectSection(ProjectDependencies) = postProject
+		{24FA1D17-681C-489D-B5BF-E64FFB52B50C} = {24FA1D17-681C-489D-B5BF-E64FFB52B50C}
+		{7CAF5A36-E70F-4901-8AC2-1159B78BF7E8} = {7CAF5A36-E70F-4901-8AC2-1159B78BF7E8}
+		{C5B451A3-0A8E-46EB-9E60-8DBF3C6141AA} = {C5B451A3-0A8E-46EB-9E60-8DBF3C6141AA}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Winston.Common", "Winston.Common\Winston.Common.csproj", "{C5B451A3-0A8E-46EB-9E60-8DBF3C6141AA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{118763DE-70F8-47EC-8328-794ECF31D5D8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{118763DE-70F8-47EC-8328-794ECF31D5D8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{118763DE-70F8-47EC-8328-794ECF31D5D8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{118763DE-70F8-47EC-8328-794ECF31D5D8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{26C00DFE-7E11-4EA0-8EBF-A88CD7130C24}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{26C00DFE-7E11-4EA0-8EBF-A88CD7130C24}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{26C00DFE-7E11-4EA0-8EBF-A88CD7130C24}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{26C00DFE-7E11-4EA0-8EBF-A88CD7130C24}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7CAF5A36-E70F-4901-8AC2-1159B78BF7E8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7CAF5A36-E70F-4901-8AC2-1159B78BF7E8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7CAF5A36-E70F-4901-8AC2-1159B78BF7E8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7CAF5A36-E70F-4901-8AC2-1159B78BF7E8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{24FA1D17-681C-489D-B5BF-E64FFB52B50C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{24FA1D17-681C-489D-B5BF-E64FFB52B50C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{24FA1D17-681C-489D-B5BF-E64FFB52B50C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{24FA1D17-681C-489D-B5BF-E64FFB52B50C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CC98EFEC-257E-4F64-AB5E-A0C063B2EAD2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CC98EFEC-257E-4F64-AB5E-A0C063B2EAD2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CC98EFEC-257E-4F64-AB5E-A0C063B2EAD2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CC98EFEC-257E-4F64-AB5E-A0C063B2EAD2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2E3369A1-1574-4BC9-A1AB-EB12F93629DC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2E3369A1-1574-4BC9-A1AB-EB12F93629DC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2E3369A1-1574-4BC9-A1AB-EB12F93629DC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2E3369A1-1574-4BC9-A1AB-EB12F93629DC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C5B451A3-0A8E-46EB-9E60-8DBF3C6141AA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C5B451A3-0A8E-46EB-9E60-8DBF3C6141AA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C5B451A3-0A8E-46EB-9E60-8DBF3C6141AA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C5B451A3-0A8E-46EB-9E60-8DBF3C6141AA}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 8
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://nsdevelopment.visualstudio.com/defaultcollection
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = Winston.Infrastructure\\Winston.Infrastructure.csproj
+		SccProjectName1 = Winston.Infrastructure
+		SccLocalPath1 = Winston.Infrastructure
+		SccProjectUniqueName2 = WinstonAdmin\\Winston.Admin.csproj
+		SccProjectName2 = WinstonAdmin
+		SccLocalPath2 = WinstonAdmin
+		SccProjectUniqueName3 = WinstonAPI\\Winston.API.csproj
+		SccProjectName3 = WinstonAPI
+		SccLocalPath3 = WinstonAPI
+		SccProjectUniqueName4 = WinstonBL\\Winston.BL.csproj
+		SccProjectName4 = WinstonBL
+		SccLocalPath4 = WinstonBL
+		SccProjectUniqueName5 = WinstonDAL\\Winston.DAL.csproj
+		SccProjectName5 = WinstonDAL
+		SccLocalPath5 = WinstonDAL
+		SccProjectUniqueName6 = WinstonModels\\Winston.Models.csproj
+		SccProjectName6 = WinstonModels
+		SccLocalPath6 = WinstonModels
+		SccProjectUniqueName7 = Winston.Common\\Winston.Common.csproj
+		SccProjectName7 = Winston.Common
+		SccLocalPath7 = Winston.Common
+	EndGlobalSection
+EndGlobal

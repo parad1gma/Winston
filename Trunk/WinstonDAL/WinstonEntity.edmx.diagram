@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="406c6ba35ab74ed18e7c28442ea50f23" Name="Diagram1">
+        <EntityTypeShape EntityType="WinstonEntityModel.AspNetRoles" Width="1.5" PointX="5.75" PointY="8.5" />
+        <EntityTypeShape EntityType="WinstonEntityModel.AspNetUserClaims" Width="1.5" PointX="10.25" PointY="9.625" />
+        <EntityTypeShape EntityType="WinstonEntityModel.AspNetUserLogins" Width="1.5" PointX="10.25" PointY="7" />
+        <EntityTypeShape EntityType="WinstonEntityModel.AspNetUsers" Width="1.5" PointX="8" PointY="7.375" />
+        <EntityTypeShape EntityType="WinstonEntityModel.CalculationTypeEnum" Width="1.5" PointX="0.75" PointY="8.125" />
+        <EntityTypeShape EntityType="WinstonEntityModel.KeyAccount" Width="1.5" PointX="0.75" PointY="2.375" />
+        <EntityTypeShape EntityType="WinstonEntityModel.Offer" Width="1.5" PointX="0.75" PointY="10.375" />
+        <EntityTypeShape EntityType="WinstonEntityModel.User" Width="1.5" PointX="3" PointY="7.25" />
+        <EntityTypeShape EntityType="WinstonEntityModel.UserSegment" Width="1.5" PointX="1.5" PointY="14.75" />
+        <EntityTypeShape EntityType="WinstonEntityModel.UserVoucher" Width="1.5" PointX="5.25" PointY="1.75" />
+        <EntityTypeShape EntityType="WinstonEntityModel.Voucher" Width="1.5" PointX="3" PointY="1" />
+        <EntityTypeShape EntityType="WinstonEntityModel.VoucherTransaction" Width="1.5" PointX="7.5" PointY="1.625" />
+        <EntityTypeShape EntityType="WinstonEntityModel.VoucherTypeEnum" Width="1.5" PointX="0.75" PointY="5.75" />
+        <AssociationConnector Association="WinstonEntityModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" />
+        <AssociationConnector Association="WinstonEntityModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" />
+        <AssociationConnector Association="WinstonEntityModel.FK_Voucher_CalculationTypeEnum" />
+        <AssociationConnector Association="WinstonEntityModel.FK_Voucher_KeyAccount" />
+        <AssociationConnector Association="WinstonEntityModel.FK_VoucherTransaction_KeyAccount" />
+        <AssociationConnector Association="WinstonEntityModel.FK_Offer_UserSegment" />
+        <AssociationConnector Association="WinstonEntityModel.FK_Voucher_Offer" />
+        <AssociationConnector Association="WinstonEntityModel.FK_VoucherTransaction_Offer" />
+        <AssociationConnector Association="WinstonEntityModel.FK_UserVoucher_User" />
+        <AssociationConnector Association="WinstonEntityModel.FK_VoucherTransaction_User" />
+        <AssociationConnector Association="WinstonEntityModel.FK_UserVoucher_Voucher" />
+        <AssociationConnector Association="WinstonEntityModel.FK_VoucherTransaction_UserVoucher" />
+        <AssociationConnector Association="WinstonEntityModel.FK_Voucher_VoucherTypeEnum" />
+        <AssociationConnector Association="WinstonEntityModel.FK_VoucherTransaction_Voucher" />
+        <AssociationConnector Association="WinstonEntityModel.AspNetUserRoles" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
